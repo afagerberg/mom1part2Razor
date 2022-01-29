@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <!-- DT191G moment 1 del 2, Alice Fagerberg
+        Layout
+    -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DT191G moment 1 part 2</title>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+    <header>
+        <a asp-area="" asp-page="/Index"><div id="logo"><h1>Razorstuffin</h1></div></a>
+
+        <div class="datelabel">
+            @{      //Dagens datum - skrivs ut i p-tagg nedan
+                    var dt = DateTime.Now.ToShortDateString();       
+
+             }
+            <p>Dagens datum är: @dt </p>
+        </div>
+        
+    </header>
+    
+    <div class="container">
+        <!-- Huvudnavigering -->
+        <nav>
+            <ul>
+                <li><a asp-area="" asp-page="/Index">Hem</a></li>
+                <li><a asp-area="" asp-page="/Razortasks">Razor</a></li>
+                <li><a asp-area="" asp-page="/About">Om sidan</a></li>
+                
+            </ul>
+        </nav>
+        <!-- main med body som renderas utifrån page -->
+        <main role="main" class="pb-3">
+            @RenderBody()
+
+            <div id="timebox">
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <footer>
+        <p>Av Alice Fagerberg - Kontakta mig via e-post:<a href = "mailto:alfa1700@student.miun.se"> alfa1700@student.miun.se</a> </p>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

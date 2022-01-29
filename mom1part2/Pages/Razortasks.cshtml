@@ -1,0 +1,60 @@
+﻿@page
+@model mom1part2.Pages.RazortasksModel
+@{
+    ViewData["Title"] = "Razor";
+}
+<!-- DT191G moment 1 del 2, Alice Fagerberg
+        Sida med Razoruppgifter
+    -->
+<h1>@ViewData["Title"]</h1>
+
+<p class="subintro">Lite interaktion med Razor...</p>
+
+@{
+    //Variabler och datummetod
+    var d = DateTime.Now.ToShortDateString();
+    var t = DateTime.Now.ToLongTimeString();
+
+    var dt = d + "  " + t;
+
+    DateTime now = new DateTime();
+
+    var today = now.ToString("dddd");
+
+
+    // List med kurser            
+    List<string> CourseList = new List<string>()
+    {
+        "DT084G, Introduktion till programmering i JavaScript",
+        "DT057G, Webbutveckling I",
+        "DT163G, Digital bildbehandling för webb",
+        "GD008G, Typografi och form för webb",
+        "DT003G, Databaser",
+        "DT093G, Webbutveckling II",
+        "DT197G, Webbdesign för CMS",
+        "DT068G, Webbanvändbarhet",
+        "DT173G, Webbutveckling III"
+    };
+
+}
+<h2>Information</h2>
+
+<p class ="time"><strong>Datum och klockslag:</strong> @dt </p>
+
+@if(today == "måndag")
+{//Skriv ut att det är måndag om variabeln today matchar
+    <p class="todaytext"> Idag är det Måndag</p>
+}
+else
+{
+    <p class="todaytext"> Idag är det inte Måndag</p>
+}
+
+<h3>Kurser jag har läst</h3>
+<ul class="courselist">
+    @for(int i = 0; i < CourseList.Count; i++)
+    {//loopar igenom list och skriver ut i en li
+        <li>@CourseList[i] </li>
+        
+    }
+</ul>
